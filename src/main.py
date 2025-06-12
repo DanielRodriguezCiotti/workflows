@@ -1,3 +1,5 @@
+import os
+
 import yaml
 from PIL import Image
 from prefect import flow, task
@@ -8,6 +10,18 @@ from client import DummyJobClient
 from s3 import download_image, upload_image
 
 aws_credentials_block = AwsCredentials.load("aws-credentials")
+assert isinstance(aws_credentials_block, AwsCredentials)
+AWS_ACCESS_KEY_ID = aws_credentials_block.aws_access_key_id
+AWS_SECRET_ACCESS_KEY = aws_credentials_block.aws_secret_access_key.get_secret_value()
+AWS_SESSION_TOKEN = aws_credentials_block.aws_session_token
+assert AWS_ACCESS_KEY_ID is not None
+assert AWS_SECRET_ACCESS_KEY is not None
+assert AWS_SESSION_TOKEN is not None
+
+os.environ["AWS_ACCESS_KEY_ID"] = AWS_ACCESS_KEY_ID
+os.environ["AWS_SECRET_ACCESS_KEY"] = AWS_SECRET_ACCESS_KEY
+os.environ["AWS_SESSION_TOKEN"] = AWS_SESSION_TOKEN
+
 logger = get_logger("dummy-try-on-workflow")
 
 
@@ -145,25 +159,26 @@ def main_flow(
 
 
 if __name__ == "__main__":
-    import json
-    from argparse import ArgumentParser
+    main_flow.serve(name="dummy-try-on-workflow")
+    # import json
+    # from argparse import ArgumentParser
 
-    with open("data/input.json", "r") as f:
-        default_args = json.load(f)
+    # with open("data/input.json", "r") as f:
+    #     default_args = json.load(f)
 
-    parser = ArgumentParser()
-    parser.add_argument(
-        "-g", "--garment-uri", type=str, default=default_args["garment_uri"]
-    )
-    parser.add_argument(
-        "-m", "--model-prompt", type=str, default=default_args["model_prompt"]
-    )
-    parser.add_argument("-t", "--category", type=str, default=default_args["category"])
-    parser.add_argument(
-        "-o", "--output-uri", type=str, default=default_args["output_uri"]
-    )
-    parser.add_argument(
-        "-c", "--config-path", type=str, default=default_args["config_path"]
-    )
-    args = parser.parse_args()
-    main_flow(**vars(args))
+    # parser = ArgumentParser()
+    # parser.add_argument(
+    #     "-g", "--garment-uri", type=str, default=default_args["garment_uri"]
+    # )
+    # parser.add_argument(
+    #     "-m", "--model-prompt", type=str, default=default_args["model_prompt"]
+    # )
+    # parser.add_argument("-t", "--category", type=str, default=default_args["category"])
+    # parser.add_argument(
+    #     "-o", "--output-uri", type=str, default=default_args["output_uri"]
+    # )
+    # parser.add_argument(
+    #     "-c", "--config-path", type=str, default=default_args["config_path"]
+    # )
+    # args = parser.parse_args()
+    # main_flow(**vars(args))
