@@ -1,0 +1,8 @@
+
+endpoints:
+  tryon : https://fake-tryon-endpoint.swedencentral.azurecontainerapps.io
+  masking : https://fake-masking-endpoint.swedencentral.azurecontainerapps.io
+  model_generator : https://fake-model-generator-endpoint.swedencentral.azurecontainerapps.io
+
+s3_buckets :
+  output : s3://data-processing-playground/prefect-workflow-sample/output/

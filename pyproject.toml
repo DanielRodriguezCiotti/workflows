@@ -1,0 +1,16 @@
+[project]
+name = "workflow-sample"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "boto3>=1.38.34",
+    "loguru>=0.7.3",
+    "numpy>=2.3.0",
+    "pillow>=11.2.1",
+    "prefect>=3.4.5",
+    "prefect-aws>=0.5.10",
+    "prefect-cloud>=0.1.6",
+    "requests>=2.32.4",
+]

@@ -1,0 +1,7 @@
+{
+    "model_prompt": "Photography, with studio lighting, in a minimalist composition, muted white simple. On the center of the image: one **Asian (Delicate features, silky straight white hair, high cheekbones, graceful bearing, often with monolid eyes)** 18-month-old girl, view from the front, facing camera, joyful expression, one hand on hip, one foot forward, standing, head tilted, with a baby-proportioned build, dark blue eyes, soft black haircut, casual style outfit, wearing a pastel pink romper top paired with gray leggings, and baby socks. fashion editorial style, high fashion, trendy, stylish, editorial, magazine style, professional, highly detailed, photorealistic style. skin texture, hyperrealistic. extremely high-resolution details, photographic, realism pushed to extreme, fine texture, incredibly lifelike.",
+    "garment_uri": "s3://data-processing-playground/prefect-workflow-sample/input/f04.webp",
+    "category": "dresses",
+    "output_uri": "s3://data-processing-playground/prefect-workflow-sample/output/tryon.webp",
+    "config_path": "config/config.yaml"
+}
