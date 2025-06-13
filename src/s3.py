@@ -5,8 +5,10 @@ from typing import Literal, Optional, TypeVar
 from urllib.parse import urlparse
 
 import boto3
-from loguru import logger
 from PIL import Image
+from prefect.logging import get_logger
+
+logger = get_logger("s3")
 
 
 class ExtensionsEnum(Enum):

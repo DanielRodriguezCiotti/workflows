@@ -158,27 +158,27 @@ def main_flow(
     push_tryon_to_s3(tryon_image, output_uri)
 
 
-if __name__ == "__main__":
-    main_flow.serve(name="dummy-try-on-workflow")
-    # import json
-    # from argparse import ArgumentParser
+# if __name__ == "__main__":
+#     main_flow.serve(name="dummy-try-on-workflow")
+# import json
+# from argparse import ArgumentParser
 
-    # with open("data/input.json", "r") as f:
-    #     default_args = json.load(f)
+# with open("data/input.json", "r") as f:
+#     default_args = json.load(f)
 
-    # parser = ArgumentParser()
-    # parser.add_argument(
-    #     "-g", "--garment-uri", type=str, default=default_args["garment_uri"]
-    # )
-    # parser.add_argument(
-    #     "-m", "--model-prompt", type=str, default=default_args["model_prompt"]
-    # )
-    # parser.add_argument("-t", "--category", type=str, default=default_args["category"])
-    # parser.add_argument(
-    #     "-o", "--output-uri", type=str, default=default_args["output_uri"]
-    # )
-    # parser.add_argument(
-    #     "-c", "--config-path", type=str, default=default_args["config_path"]
-    # )
-    # args = parser.parse_args()
-    # main_flow(**vars(args))
+# parser = ArgumentParser()
+# parser.add_argument(
+#     "-g", "--garment-uri", type=str, default=default_args["garment_uri"]
+# )
+# parser.add_argument(
+#     "-m", "--model-prompt", type=str, default=default_args["model_prompt"]
+# )
+# parser.add_argument("-t", "--category", type=str, default=default_args["category"])
+# parser.add_argument(
+#     "-o", "--output-uri", type=str, default=default_args["output_uri"]
+# )
+# parser.add_argument(
+#     "-c", "--config-path", type=str, default=default_args["config_path"]
+# )
+# args = parser.parse_args()
+# main_flow(**vars(args))
